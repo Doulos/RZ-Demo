@@ -19,8 +19,8 @@ int main()
     constexpr int64_t numInputElements = numChannels * height * width;
 
 
-    const std::string imageFile = "/home/root/ONNX-runtime-test/dog.png";
-    const std::string labelFile = "/home/root/ONNX-runtime-test/imagenet_classes.txt";
+    const std::string imageFile = "./dog.png";
+    const std::string labelFile = "./imagenet_classes.txt";
     //auto modelPath = L"/home/root/ONNX-runtime-test/resnet50v2.onnx";
 
 
@@ -45,7 +45,7 @@ int main()
     }
 
     // create session
-    session = Ort::Session(env, "/home/root/ONNX-runtime-test/resnet50v2.onnx", Ort::SessionOptions{ nullptr });
+    session = Ort::Session(env, "./resnet50v2.onnx", Ort::SessionOptions{ nullptr });
 
     // define shape
     const std::array<int64_t, 4> inputShape = { 1, numChannels, height, width };
